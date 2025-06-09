@@ -25,6 +25,7 @@ import HRDashboard from "./pages/HRDashboard";
 import LegalDashboard from "./pages/LegalDashboard";
 import ITInfrastructureDashboard from "./pages/ITInfrastructureDashboard";
 import EnterpriseResilienceDashboard from "./pages/EnterpriseResilienceDashboard";
+import ZeroKnowledgeComplianceDashboard from "./pages/ZeroKnowledgeComplianceDashboard";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -64,6 +65,7 @@ const App = () => (
           <Route path="/calendar" element={<CalendarIntelligence />} />
           <Route path="/security" element={<SecurityAuditDashboard />} />
           <Route path="/legal" element={<LegalDashboard />} />
+          <Route path="/legal/zero-knowledge" element={<ZeroKnowledgeComplianceDashboard />} />
           <Route path="/infrastructure" element={<ITInfrastructureDashboard />} />
           <Route path="/resilience" element={<EnterpriseResilienceDashboard />} />
           <Route path="/reports" element={<ReportBuilder />} />

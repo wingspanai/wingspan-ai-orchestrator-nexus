@@ -21,7 +21,8 @@ import {
   TrendingUp,
   Users as UsersIcon,
   Server,
-  RefreshCw
+  RefreshCw,
+  Key
 } from "lucide-react";
 
 export const sidebarData = [
@@ -91,6 +92,7 @@ export const sidebarData = [
       { title: "Enterprise Resilience", path: "/resilience", icon: RefreshCw },
       { title: "Security Audit", path: "/security", icon: ShieldCheck },
       { title: "Legal & Compliance", path: "/legal", icon: Shield },
+      { title: "Zero-Knowledge Compliance", path: "/legal/zero-knowledge", icon: Key },
     ]
   }
 ];
