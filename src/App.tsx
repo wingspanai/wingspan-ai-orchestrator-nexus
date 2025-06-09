@@ -20,6 +20,7 @@ import NotFound from "./pages/NotFound";
 import StrategicPlanning from "./pages/StrategicPlanning";
 import AIHealthDashboard from "./pages/AIHealthDashboard";
 import KnowledgeManagement from "./pages/KnowledgeManagement";
+import ProductLaunchDashboard from "./pages/ProductLaunchDashboard";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,6 +39,12 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/product-launch" element={<ProductLaunchDashboard />} />
+          <Route path="/product-launch/ideation" element={<ProductLaunchDashboard />} />
+          <Route path="/product-launch/development" element={<ProductLaunchDashboard />} />
+          <Route path="/product-launch/go-to-market" element={<ProductLaunchDashboard />} />
+          <Route path="/product-launch/launch" element={<ProductLaunchDashboard />} />
+          <Route path="/product-launch/performance" element={<ProductLaunchDashboard />} />
           <Route path="/executive" element={<ExecutiveOverview />} />
           <Route path="/business-overview" element={<BusinessOverview />} />
           <Route path="/agents" element={<AIAgentStore />} />

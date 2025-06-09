@@ -14,10 +14,27 @@ import {
   Activity,
   Brain,
   Settings,
-  HelpCircle
+  HelpCircle,
+  Rocket,
+  Lightbulb,
+  GitBranch,
+  TrendingUp
 } from "lucide-react";
 
 export const sidebarData = [
+  {
+    title: "Product Launch",
+    icon: Rocket,
+    path: "/product-launch",
+    items: [
+      { title: "Dashboard", path: "/product-launch", icon: Rocket },
+      { title: "Ideation", path: "/product-launch/ideation", icon: Lightbulb },
+      { title: "Development", path: "/product-launch/development", icon: GitBranch },
+      { title: "Go-to-Market", path: "/product-launch/go-to-market", icon: Target },
+      { title: "Launch", path: "/product-launch/launch", icon: Rocket },
+      { title: "Performance", path: "/product-launch/performance", icon: TrendingUp },
+    ]
+  },
   {
     title: "Executive Dashboard",
     icon: BarChart3,
