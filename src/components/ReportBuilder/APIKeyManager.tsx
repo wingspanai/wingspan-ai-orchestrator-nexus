@@ -62,11 +62,11 @@ export function APIKeyManagerComponent({ show, onClose }: APIKeyManagerProps) {
 
     setLoading(true);
     try {
-      const result = await APIKeyManager.storeAPIKey({
-        serviceName: newKey.serviceName,
-        apiKey: newKey.apiKey,
-        description: newKey.description
-      });
+      const result = await APIKeyManager.storeAPIKey(
+        newKey.serviceName,
+        newKey.apiKey,
+        newKey.description
+      );
 
       if (result) {
         toast.success("API key stored successfully");
@@ -86,7 +86,7 @@ export function APIKeyManagerComponent({ show, onClose }: APIKeyManagerProps) {
 
   const handleDeactivateKey = async (serviceName: string) => {
     try {
-      const success = await APIKeyManager.deactivateAPIKey(serviceName);
+      const success = await APIKeyManager.toggleAPIKey(serviceName, false);
       if (success) {
         toast.success("API key deactivated");
         loadAPIKeys();
