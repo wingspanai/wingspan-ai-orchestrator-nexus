@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Input } from "@/components/ui/input";
-import { Cpu, CheckCircle, Loader, RefreshCw, Sun, Grid3x3 } from "lucide-react";
+import { Cpu, CheckCircle, Loader, RefreshCw, Grid3x3 } from "lucide-react";
 
 export function AIOptimizationSection() {
   const mockOptimizations = [
@@ -49,9 +49,13 @@ export function AIOptimizationSection() {
           </div>
           <div className="flex items-center gap-2">
             {mockScalingData.optimizationRunning ? (
-              <><Loader className="h-4 w-4 animate-spin" /> Optimizing...</>
+              <>
+                <Loader className="h-4 w-4 animate-spin" /> Optimizing...
+              </>
             ) : (
-              <><CheckCircle className="h-4 w-4 text-green-600" /> Optimized</>
+              <>
+                <CheckCircle className="h-4 w-4 text-green-600" /> Optimized
+              </>
             )}
           </div>
         </div>
@@ -79,7 +83,7 @@ export function AIOptimizationSection() {
               <CardContent className="space-y-3">
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm">When CPU ></span>
+                    <span className="text-sm">When CPU {'>'}</span>
                     <Input
                       type="number"
                       value={mockScalingData.scaleUpCpuThreshold}
@@ -89,7 +93,7 @@ export function AIOptimizationSection() {
                     <span className="text-sm">%</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-sm">Or Queue ></span>
+                    <span className="text-sm">Or Queue {'>'}</span>
                     <Input
                       type="number"
                       value={mockScalingData.scaleUpQueueThreshold}
@@ -123,7 +127,7 @@ export function AIOptimizationSection() {
               <CardContent className="space-y-3">
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm">When CPU <</span>
+                    <span className="text-sm">When CPU {'<'}</span>
                     <Input
                       type="number"
                       value={mockScalingData.scaleDownCpuThreshold}
