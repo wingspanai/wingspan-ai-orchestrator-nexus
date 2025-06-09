@@ -12,7 +12,8 @@ import {
   Building,
   CreditCard,
   Calendar,
-  FileText
+  FileText,
+  Target
 } from "lucide-react";
 
 export const sidebarData = {
@@ -77,6 +78,33 @@ export const sidebarData = {
     {
       title: "Business Intelligence",
       items: [
+        {
+          title: "Strategic Planning",
+          url: "/strategic-planning",
+          icon: Target,
+          items: [
+            {
+              title: "OKR Management",
+              url: "/strategic-planning#okrs",
+            },
+            {
+              title: "Strategic Initiatives",
+              url: "/strategic-planning#initiatives",
+            },
+            {
+              title: "Scenario Planning",
+              url: "/strategic-planning#scenarios",
+            },
+            {
+              title: "Resource Allocation",
+              url: "/strategic-planning#resources",
+            },
+            {
+              title: "Strategic Roadmap",
+              url: "/strategic-planning#roadmap",
+            },
+          ],
+        },
         {
           title: "Report Builder",
           url: "/reports",
