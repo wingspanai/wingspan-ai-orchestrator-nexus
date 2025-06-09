@@ -1,6 +1,5 @@
 
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import * as React from "react";
 import {
   LayoutDashboard,
   Bot,
@@ -12,12 +11,12 @@ import {
   Shield,
   Brain,
   Settings,
-  HelpCircle,
-  ChevronLeft,
-  Menu,
-  Sparkles
+  ChevronRight,
+  Building,
+  CreditCard
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
+
 import {
   Sidebar,
   SidebarContent,
@@ -29,171 +28,177 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarTrigger,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-interface NavItem {
-  title: string;
-  url: string;
-  icon: React.ComponentType<{ className?: string }>;
-  badge?: string | number;
-  isActive?: boolean;
-}
+const data = {
+  user: {
+    name: "Sarah Chen",
+    email: "sarah.chen@company.com",
+    avatar: "/avatars/shadcn.jpg",
+  },
+  teams: [
+    {
+      name: "WingSpan AI",
+      logo: Bot,
+      plan: "Enterprise",
+    },
+  ],
+  navMain: [
+    {
+      title: "Intelligence",
+      items: [
+        {
+          title: "Executive Overview",
+          url: "/executive",
+          icon: LayoutDashboard,
+          isActive: true,
+        },
+        {
+          title: "AI Agent Store",
+          url: "/agents",
+          icon: Bot,
+          badge: "150+",
+        },
+        {
+          title: "Analytics Hub",
+          url: "/analytics",
+          icon: TrendingUp,
+          items: [
+            {
+              title: "Business Performance",
+              url: "/analytics/business",
+            },
+            {
+              title: "Predictive Analytics",
+              url: "/analytics/predictive",
+            },
+            {
+              title: "Custom Reports",
+              url: "/analytics/reports",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "Operations",
+      items: [
+        {
+          title: "Team Intelligence",
+          url: "/team",
+          icon: Users,
+        },
+        {
+          title: "Business Operations",
+          url: "/operations",
+          icon: Briefcase,
+          items: [
+            {
+              title: "Finance Dashboard",
+              url: "/operations/finance",
+            },
+            {
+              title: "Sales Pipeline",
+              url: "/operations/sales",
+            },
+            {
+              title: "Customer Success",
+              url: "/operations/customer",
+            },
+          ],
+        },
+        {
+          title: "Strategic Planning",
+          url: "/strategy",
+          icon: Target,
+        },
+      ],
+    },
+    {
+      title: "Platform",
+      items: [
+        {
+          title: "Integration Hub",
+          url: "/integrations",
+          icon: Plug,
+          badge: "23",
+        },
+        {
+          title: "Security & Compliance",
+          url: "/security",
+          icon: Shield,
+        },
+        {
+          title: "Knowledge Base",
+          url: "/knowledge",
+          icon: Brain,
+        },
+        {
+          title: "Settings",
+          url: "/settings",
+          icon: Settings,
+        },
+      ],
+    },
+  ],
+};
 
-interface NavSection {
-  title: string;
-  items: NavItem[];
-}
-
-const navigationSections: NavSection[] = [
-  {
-    title: "Intelligence",
-    items: [
-      {
-        title: "Executive Overview",
-        url: "/",
-        icon: LayoutDashboard,
-      },
-      {
-        title: "AI Agent Store",
-        url: "/agents/store",
-        icon: Bot,
-        badge: "150+",
-      },
-      {
-        title: "My Agents",
-        url: "/agents/deployed",
-        icon: Sparkles,
-        badge: 47,
-      },
-      {
-        title: "Analytics Hub",
-        url: "/analytics",
-        icon: TrendingUp,
-      },
-    ],
-  },
-  {
-    title: "Operations",
-    items: [
-      {
-        title: "Team Intelligence",
-        url: "/team",
-        icon: Users,
-      },
-      {
-        title: "Business Operations",
-        url: "/business",
-        icon: Briefcase,
-      },
-      {
-        title: "Strategic Planning",
-        url: "/strategy",
-        icon: Target,
-      },
-    ],
-  },
-  {
-    title: "Platform",
-    items: [
-      {
-        title: "Integrations",
-        url: "/integrations",
-        icon: Plug,
-        badge: 23,
-      },
-      {
-        title: "Security & Compliance",
-        url: "/security",
-        icon: Shield,
-      },
-      {
-        title: "Knowledge Base",
-        url: "/knowledge",
-        icon: Brain,
-      },
-    ],
-  },
-];
-
-const bottomItems: NavItem[] = [
-  {
-    title: "Settings",
-    url: "/settings",
-    icon: Settings,
-  },
-  {
-    title: "Help & Support",
-    url: "/help",
-    icon: HelpCircle,
-  },
-];
-
-export function AppSidebar() {
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const location = useLocation();
-  const [collapsed, setCollapsed] = useState(false);
-
-  const isActiveUrl = (url: string) => {
-    if (url === "/") {
-      return location.pathname === "/";
-    }
-    return location.pathname.startsWith(url);
-  };
 
   return (
-    <Sidebar className="border-r border-border/40">
-      <SidebarHeader className="border-b border-border/40 p-4">
-        <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg ai-gradient">
-            <Bot className="h-4 w-4 text-white" />
+    <Sidebar collapsible="icon" {...props}>
+      <SidebarHeader>
+        <div className="flex items-center gap-2 px-2 py-2">
+          <div className="flex aspect-square size-8 items-center justify-center rounded-lg ai-gradient text-sidebar-primary-foreground">
+            <Bot className="size-4" />
           </div>
-          <div className="flex flex-col">
-            <span className="font-display font-semibold text-sm">WingSpan AI</span>
-            <span className="text-xs text-muted-foreground">Enterprise Platform</span>
+          <div className="grid flex-1 text-left text-sm leading-tight">
+            <span className="truncate font-semibold">WingSpan AI</span>
+            <span className="truncate text-xs text-muted-foreground">Enterprise</span>
           </div>
         </div>
       </SidebarHeader>
-
-      <SidebarContent className="p-2">
-        {navigationSections.map((section) => (
+      <SidebarContent>
+        {data.navMain.map((section) => (
           <SidebarGroup key={section.title}>
-            <SidebarGroupLabel className="text-xs font-medium text-muted-foreground px-2 mb-2">
-              {section.title}
-            </SidebarGroupLabel>
+            <SidebarGroupLabel>{section.title}</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {section.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton
-                      asChild
-                      isActive={isActiveUrl(item.url)}
-                      className={`w-full justify-between transition-all duration-200 ${
-                        isActiveUrl(item.url)
-                          ? "bg-gradient-to-r from-ai-primary/10 to-ai-tertiary/10 border-l-2 border-ai-primary text-ai-primary"
-                          : "hover:bg-accent"
-                      }`}
+                    <SidebarMenuButton 
+                      asChild 
+                      tooltip={item.title}
+                      isActive={location.pathname === item.url}
                     >
-                      <Link to={item.url} className="flex items-center justify-between w-full">
-                        <div className="flex items-center gap-2">
-                          <item.icon className="h-4 w-4" />
-                          <span className="font-medium text-sm">{item.title}</span>
-                        </div>
+                      <Link to={item.url} className="flex items-center gap-2">
+                        {item.icon && <item.icon />}
+                        <span>{item.title}</span>
                         {item.badge && (
-                          <Badge 
-                            variant={isActiveUrl(item.url) ? "default" : "secondary"} 
-                            className={`h-5 text-xs ${
-                              isActiveUrl(item.url) 
-                                ? "ai-gradient text-white" 
-                                : ""
-                            }`}
-                          >
+                          <span className="ml-auto bg-sidebar-accent text-sidebar-accent-foreground px-1.5 py-0.5 rounded text-xs">
                             {item.badge}
-                          </Badge>
+                          </span>
                         )}
+                        {item.items && <ChevronRight className="ml-auto size-4" />}
                       </Link>
                     </SidebarMenuButton>
+                    {item.items?.length ? (
+                      <SidebarMenuSub>
+                        {item.items.map((subItem) => (
+                          <SidebarMenuSubItem key={subItem.title}>
+                            <SidebarMenuSubButton asChild>
+                              <Link to={subItem.url}>
+                                <span>{subItem.title}</span>
+                              </Link>
+                            </SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                        ))}
+                      </SidebarMenuSub>
+                    ) : null}
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>
@@ -201,57 +206,21 @@ export function AppSidebar() {
           </SidebarGroup>
         ))}
       </SidebarContent>
-
-      <SidebarFooter className="p-4 border-t border-border/40">
-        {/* Usage Indicator */}
-        <div className="mb-4 p-3 rounded-lg bg-gradient-to-r from-ai-primary/5 to-ai-tertiary/5 border border-ai-primary/20">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-medium">AI Credits</span>
-            <span className="text-xs text-muted-foreground">2.4K / 5K</span>
-          </div>
-          <div className="w-full bg-muted rounded-full h-1.5">
-            <div 
-              className="ai-gradient h-1.5 rounded-full transition-all duration-300" 
-              style={{ width: "48%" }}
-            />
-          </div>
-        </div>
-
-        {/* Bottom Navigation */}
+      <SidebarFooter>
         <SidebarMenu>
-          {bottomItems.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton
-                asChild
-                isActive={isActiveUrl(item.url)}
-                className={`w-full transition-all duration-200 ${
-                  isActiveUrl(item.url)
-                    ? "bg-gradient-to-r from-ai-primary/10 to-ai-tertiary/10 text-ai-primary"
-                    : "hover:bg-accent"
-                }`}
-              >
-                <Link to={item.url} className="flex items-center gap-2">
-                  <item.icon className="h-4 w-4" />
-                  <span className="font-medium text-sm">{item.title}</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
+          <SidebarMenuItem>
+            <SidebarMenuButton>
+              <Building className="size-4" />
+              <span>Organization</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton>
+              <CreditCard className="size-4" />
+              <span>Billing</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
         </SidebarMenu>
-
-        {/* User Profile */}
-        <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-accent transition-colors cursor-pointer">
-          <Avatar className="h-8 w-8">
-            <AvatarImage src="/placeholder-avatar.jpg" />
-            <AvatarFallback className="ai-gradient text-white text-xs font-semibold">
-              JD
-            </AvatarFallback>
-          </Avatar>
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium truncate">John Doe</p>
-            <p className="text-xs text-muted-foreground truncate">CEO, Acme Corp</p>
-          </div>
-        </div>
       </SidebarFooter>
     </Sidebar>
   );
