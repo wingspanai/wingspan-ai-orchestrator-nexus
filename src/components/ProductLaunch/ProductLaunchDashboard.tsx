@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -37,6 +36,9 @@ export function ProductLaunchDashboard() {
     }
     if (location.pathname.includes('/development')) {
       return <DevelopmentDashboard />;
+    }
+    if (location.pathname.includes('/go-to-market')) {
+      return <GoToMarketDashboard />;
     }
     // Add other views here as they're implemented
     return <DashboardOverview />;
@@ -85,7 +87,7 @@ export function ProductLaunchDashboard() {
           </div>
 
           {/* Dynamic Content Area */}
-          <div className="flex-1 overflow-auto p-6">
+          <div className="flex-1 overflow-auto">
             {getCurrentContent()}
           </div>
         </div>
