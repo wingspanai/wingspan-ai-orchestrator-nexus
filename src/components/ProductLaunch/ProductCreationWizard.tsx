@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ChevronLeft, ChevronRight, Lightbulb, Users, Calendar, Zap } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Lightbulb, Users, Calendar, Zap, Target } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useProductStore } from '@/store/productStore';
 import { Product, ProductCategory, Priority } from '@/types/product';
@@ -154,7 +154,7 @@ export function ProductCreationWizard({ onComplete, onCancel }: ProductCreationW
       <Card className="min-h-[400px]">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
-            <steps[currentStep].icon className="h-5 w-5" />
+            {React.createElement(steps[currentStep].icon, { className: "h-5 w-5" })}
             <span>{steps[currentStep].title}</span>
           </CardTitle>
         </CardHeader>
