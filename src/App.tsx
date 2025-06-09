@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import ExecutiveOverview from "./pages/ExecutiveOverview";
 import AIAgentStore from "./pages/AIAgentStore";
 import MyAgents from "./pages/MyAgents";
+import TrustDashboard from "./pages/TrustDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient({
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/executive" element={<ExecutiveOverview />} />
           <Route path="/agents" element={<AIAgentStore />} />
           <Route path="/my-agents" element={<MyAgents />} />
+          <Route path="/trust" element={<TrustDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
