@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Search, BarChart, Type, Database, Brain, ChevronDown, TrendingUp, PieChart, Scatter, Grid, AlignLeft, Image, Minus, Table, Hash, GitBranch, FileText, Lightbulb } from "lucide-react";
+import { Search, BarChart, Type, Database, Brain, ChevronDown, TrendingUp, PieChart, Grid, AlignLeft, Image, Minus, Table, Hash, GitBranch, FileText, Lightbulb } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -21,7 +21,7 @@ export function ComponentSidebar({ onConfigureDataSource }: ComponentSidebarProp
         { type: "lineChart", name: "Line Chart", icon: TrendingUp },
         { type: "barChart", name: "Bar Chart", icon: BarChart },
         { type: "pieChart", name: "Pie Chart", icon: PieChart },
-        { type: "scatterPlot", name: "Scatter Plot", icon: Scatter },
+        { type: "scatterPlot", name: "Scatter Plot", icon: TrendingUp },
         { type: "heatmap", name: "Heatmap", icon: Grid }
       ]
     },

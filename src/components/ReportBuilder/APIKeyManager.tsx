@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { apiKeyManager } from "@/utils/apiKeyManager";
+import { APIKeyManager } from "@/utils/apiKeyManager";
 import { toast } from "sonner";
 
 interface APIKeyManagerProps {
@@ -16,7 +16,7 @@ interface APIKeyManagerProps {
   onClose: () => void;
 }
 
-export function APIKeyManager({ show, onClose }: APIKeyManagerProps) {
+export function APIKeyManagerComponent({ show, onClose }: APIKeyManagerProps) {
   const [apiKeys, setApiKeys] = useState<any[]>([]);
   const [showAddDialog, setShowAddDialog] = useState(false);
   const [newKey, setNewKey] = useState({
@@ -46,7 +46,7 @@ export function APIKeyManager({ show, onClose }: APIKeyManagerProps) {
 
   const loadAPIKeys = async () => {
     try {
-      const keys = await apiKeyManager.listAPIKeys();
+      const keys = await APIKeyManager.listAPIKeys();
       setApiKeys(keys);
     } catch (error) {
       console.error("Error loading API keys:", error);
@@ -62,7 +62,7 @@ export function APIKeyManager({ show, onClose }: APIKeyManagerProps) {
 
     setLoading(true);
     try {
-      const result = await apiKeyManager.storeAPIKey({
+      const result = await APIKeyManager.storeAPIKey({
         serviceName: newKey.serviceName,
         apiKey: newKey.apiKey,
         description: newKey.description
@@ -86,7 +86,7 @@ export function APIKeyManager({ show, onClose }: APIKeyManagerProps) {
 
   const handleDeactivateKey = async (serviceName: string) => {
     try {
-      const success = await apiKeyManager.deactivateAPIKey(serviceName);
+      const success = await APIKeyManager.deactivateAPIKey(serviceName);
       if (success) {
         toast.success("API key deactivated");
         loadAPIKeys();
