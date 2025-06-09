@@ -1,54 +1,49 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import ExecutiveOverview from "./pages/ExecutiveOverview";
-import BusinessOverview from "./pages/BusinessOverview";
-import AIAgentStore from "./pages/AIAgentStore";
-import MyAgents from "./pages/MyAgents";
-import TrustDashboard from "./pages/TrustDashboard";
-import IntegrationHub from "./pages/IntegrationHub";
-import CompetitiveIntelligence from "./pages/CompetitiveIntelligence";
-import FinancialDashboard from "./pages/FinancialDashboard";
-import CalendarIntelligence from "./pages/CalendarIntelligence";
-import SecurityAuditDashboard from "./pages/SecurityAuditDashboard";
-import NotFound from "./pages/NotFound";
+import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { MainLayout } from "@/components/Layout/MainLayout";
+import Index from "@/pages/Index";
+import AIAgentStore from "@/pages/AIAgentStore";
+import BusinessOverview from "@/pages/BusinessOverview";
+import CalendarIntelligence from "@/pages/CalendarIntelligence";
+import FinancialDashboard from "@/pages/FinancialDashboard";
+import IntegrationHub from "@/pages/IntegrationHub";
+import MyAgents from "@/pages/MyAgents";
+import SecurityAuditDashboard from "@/pages/SecurityAuditDashboard";
+import TrustDashboard from "@/pages/TrustDashboard";
+import ReportBuilder from "@/pages/ReportBuilder";
+import NotFound from "@/pages/NotFound";
+import "./App.css";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 60 * 1000,
-      refetchOnWindowFocus: false,
-    },
-  },
-});
+const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/executive" element={<ExecutiveOverview />} />
-          <Route path="/business-overview" element={<BusinessOverview />} />
-          <Route path="/agents" element={<AIAgentStore />} />
-          <Route path="/my-agents" element={<MyAgents />} />
-          <Route path="/trust" element={<TrustDashboard />} />
-          <Route path="/integrations" element={<IntegrationHub />} />
-          <Route path="/competitive" element={<CompetitiveIntelligence />} />
-          <Route path="/finance" element={<FinancialDashboard />} />
-          <Route path="/calendar" element={<CalendarIntelligence />} />
-          <Route path="/security" element={<SecurityAuditDashboard />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<Index />} />
+              <Route path="agents" element={<AIAgentStore />} />
+              <Route path="business" element={<BusinessOverview />} />
+              <Route path="calendar" element={<CalendarIntelligence />} />
+              <Route path="financial" element={<FinancialDashboard />} />
+              <Route path="integrations" element={<IntegrationHub />} />
+              <Route path="my-agents" element={<MyAgents />} />
+              <Route path="security" element={<SecurityAuditDashboard />} />
+              <Route path="trust" element={<TrustDashboard />} />
+              <Route path="report-builder" element={<ReportBuilder />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Toaster />
+        </Router>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
 
 export default App;
