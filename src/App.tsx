@@ -21,6 +21,7 @@ import StrategicPlanning from "./pages/StrategicPlanning";
 import AIHealthDashboard from "./pages/AIHealthDashboard";
 import KnowledgeManagement from "./pages/KnowledgeManagement";
 import ProductLaunchDashboard from "./pages/ProductLaunchDashboard";
+import HRDashboard from "./pages/HRDashboard";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -47,6 +48,10 @@ const App = () => (
           <Route path="/product-launch/performance" element={<ProductLaunchDashboard />} />
           <Route path="/executive" element={<ExecutiveOverview />} />
           <Route path="/business-overview" element={<BusinessOverview />} />
+          <Route path="/hr" element={<HRDashboard />} />
+          <Route path="/hr/performance" element={<HRDashboard />} />
+          <Route path="/hr/talent" element={<HRDashboard />} />
+          <Route path="/hr/engagement" element={<HRDashboard />} />
           <Route path="/agents" element={<AIAgentStore />} />
           <Route path="/my-agents" element={<MyAgents />} />
           <Route path="/trust" element={<TrustDashboard />} />

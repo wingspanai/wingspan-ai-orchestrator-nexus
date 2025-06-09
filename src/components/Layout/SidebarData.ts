@@ -18,7 +18,8 @@ import {
   Rocket,
   Lightbulb,
   GitBranch,
-  TrendingUp
+  TrendingUp,
+  Users as UsersIcon
 } from "lucide-react";
 
 export const sidebarData = [
@@ -43,6 +44,17 @@ export const sidebarData = [
       { title: "Business Overview", path: "/business-overview", icon: Building2 },
       { title: "Strategic Planning", path: "/strategic-planning", icon: Target },
       { title: "AI Health", path: "/ai-health", icon: Activity },
+    ]
+  },
+  {
+    title: "People & Culture",
+    icon: UsersIcon,
+    path: "/hr",
+    items: [
+      { title: "HR Dashboard", path: "/hr", icon: UsersIcon },
+      { title: "Performance", path: "/hr/performance", icon: Target },
+      { title: "Talent Acquisition", path: "/hr/talent", icon: Search },
+      { title: "Engagement", path: "/hr/engagement", icon: Activity },
     ]
   },
   {
