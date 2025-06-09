@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import {
   LayoutDashboard,
@@ -45,10 +44,13 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+} from "@/components/ui/sidebar";
+
+import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/sidebar";
+} from "@/components/ui/collapsible";
 
 const data = {
   user: {
