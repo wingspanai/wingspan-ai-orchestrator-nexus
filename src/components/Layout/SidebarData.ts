@@ -20,7 +20,8 @@ import {
   GitBranch,
   TrendingUp,
   Users as UsersIcon,
-  Server
+  Server,
+  RefreshCw
 } from "lucide-react";
 
 export const sidebarData = [
@@ -87,6 +88,7 @@ export const sidebarData = [
       { title: "Financial Dashboard", path: "/finance", icon: DollarSign },
       { title: "Calendar Intelligence", path: "/calendar", icon: Calendar },
       { title: "IT Infrastructure", path: "/infrastructure", icon: Server },
+      { title: "Enterprise Resilience", path: "/resilience", icon: RefreshCw },
       { title: "Security Audit", path: "/security", icon: ShieldCheck },
       { title: "Legal & Compliance", path: "/legal", icon: Shield },
     ]

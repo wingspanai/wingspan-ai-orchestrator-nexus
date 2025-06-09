@@ -24,6 +24,7 @@ import ProductLaunchDashboard from "./pages/ProductLaunchDashboard";
 import HRDashboard from "./pages/HRDashboard";
 import LegalDashboard from "./pages/LegalDashboard";
 import ITInfrastructureDashboard from "./pages/ITInfrastructureDashboard";
+import EnterpriseResilienceDashboard from "./pages/EnterpriseResilienceDashboard";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -64,6 +65,7 @@ const App = () => (
           <Route path="/security" element={<SecurityAuditDashboard />} />
           <Route path="/legal" element={<LegalDashboard />} />
           <Route path="/infrastructure" element={<ITInfrastructureDashboard />} />
+          <Route path="/resilience" element={<EnterpriseResilienceDashboard />} />
           <Route path="/reports" element={<ReportBuilder />} />
           <Route path="/strategic-planning" element={<StrategicPlanning />} />
           <Route path="/ai-health" element={<AIHealthDashboard />} />
