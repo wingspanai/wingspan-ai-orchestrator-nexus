@@ -38,23 +38,45 @@ export function SidebarNavigation() {
               <SidebarGroupContent>
                 <SidebarMenu>
                   {section.items.map((item) => (
-                    <SidebarMenuItem key={item.title}>
-                      <SidebarMenuButton 
-                        asChild 
-                        tooltip={item.title}
-                        isActive={location.pathname === item.url}
-                      >
-                        <Link to={item.url} className="flex items-center gap-2">
-                          {item.icon && <item.icon />}
-                          <span>{item.title}</span>
-                          {item.badge && (
-                            <span className="ml-auto bg-sidebar-accent text-sidebar-accent-foreground px-1.5 py-0.5 rounded text-xs">
-                              {item.badge}
-                            </span>
-                          )}
-                        </Link>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
+                    <Collapsible key={item.title} className="group/item">
+                      <SidebarMenuItem>
+                        <SidebarMenuButton 
+                          asChild 
+                          tooltip={item.title}
+                          isActive={location.pathname === item.url}
+                        >
+                          <Link to={item.url} className="flex items-center gap-2">
+                            {item.icon && <item.icon />}
+                            <span>{item.title}</span>
+                            {item.badge && (
+                              <span className="ml-auto bg-sidebar-accent text-sidebar-accent-foreground px-1.5 py-0.5 rounded text-xs">
+                                {item.badge}
+                              </span>
+                            )}
+                            {item.items && (
+                              <CollapsibleTrigger asChild>
+                                <ChevronRight className="ml-auto size-4 transition-transform duration-200 group-data-[state=open]/item:rotate-90" />
+                              </CollapsibleTrigger>
+                            )}
+                          </Link>
+                        </SidebarMenuButton>
+                        {item.items?.length ? (
+                          <CollapsibleContent>
+                            <SidebarMenuSub>
+                              {item.items.map((subItem) => (
+                                <SidebarMenuSubItem key={subItem.title}>
+                                  <SidebarMenuSubButton asChild>
+                                    <Link to={subItem.url}>
+                                      <span>{subItem.title}</span>
+                                    </Link>
+                                  </SidebarMenuSubButton>
+                                </SidebarMenuSubItem>
+                              ))}
+                            </SidebarMenuSub>
+                          </CollapsibleContent>
+                        ) : null}
+                      </SidebarMenuItem>
+                    </Collapsible>
                   ))}
                 </SidebarMenu>
               </SidebarGroupContent>
