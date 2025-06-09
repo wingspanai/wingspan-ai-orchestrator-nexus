@@ -12,7 +12,9 @@ import {
   FileText,
   Target,
   Activity,
-  Brain
+  Brain,
+  Settings,
+  HelpCircle
 } from "lucide-react";
 
 export const sidebarData = [
@@ -59,22 +61,16 @@ export const sidebarData = [
   }
 ];
 
-// Navigation structure for the sidebar (fixing the navMain property issue)
-export const navMain = sidebarData.map(section => ({
-  ...section,
-  navMain: section.items
-}));
-
 // Footer items for the sidebar
 export const footerItems = [
   {
     title: "Settings",
-    icon: "Settings",
+    icon: Settings,
     path: "/settings"
   },
   {
     title: "Help & Support", 
-    icon: "HelpCircle",
+    icon: HelpCircle,
     path: "/help"
   }
 ];

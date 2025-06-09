@@ -12,7 +12,7 @@ export function SidebarFooter() {
       {footerItems.map((item) => (
         <SidebarMenuItem key={item.title}>
           <SidebarMenuButton>
-            <item.icon className="size-4" />
+            <item.icon />
             <span>{item.title}</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
