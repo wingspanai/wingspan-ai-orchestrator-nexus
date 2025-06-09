@@ -47,6 +47,7 @@ export const sidebarData = [
       { title: "Business Overview", path: "/business-overview", icon: Building2 },
       { title: "Strategic Planning", path: "/strategic-planning", icon: Target },
       { title: "AI Health", path: "/ai-health", icon: Activity },
+      { title: "Unified Intelligence", path: "/executive/unified-intelligence", icon: Brain },
     ]
   },
   {
