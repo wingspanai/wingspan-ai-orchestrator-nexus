@@ -21,7 +21,10 @@ import {
   Activity,
   PieChart,
   LineChart,
-  Database
+  Database,
+  Calendar,
+  Clock,
+  MessageSquare
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -168,6 +171,33 @@ const data = {
             {
               title: "Budget Tracking",
               url: "/finance#budget",
+            },
+          ],
+        },
+        {
+          title: "Calendar Intelligence",
+          url: "/calendar",
+          icon: Calendar,
+          items: [
+            {
+              title: "Meeting Analytics",
+              url: "/calendar#analytics",
+            },
+            {
+              title: "Cost Optimization",
+              url: "/calendar#optimization",
+            },
+            {
+              title: "Time Management",
+              url: "/calendar#time-management",
+            },
+            {
+              title: "Meeting Templates",
+              url: "/calendar#templates",
+            },
+            {
+              title: "Focus Time Analysis",
+              url: "/calendar#focus-time",
             },
           ],
         },
