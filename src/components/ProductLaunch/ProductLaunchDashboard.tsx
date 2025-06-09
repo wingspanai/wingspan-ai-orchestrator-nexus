@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,7 @@ import { AIAssistantPanel } from './AIAssistantPanel';
 import { ProductCreationWizard } from './ProductCreationWizard';
 import { IdeationDashboard } from './IdeationDashboard';
 import { DevelopmentDashboard } from './DevelopmentDashboard';
+import { GoToMarketDashboard } from './GoToMarketDashboard';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { useProductStore } from '@/store/productStore';
 import { useLocation } from 'react-router-dom';
