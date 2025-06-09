@@ -1,11 +1,13 @@
 
+import { LucideIcon } from 'lucide-react';
+
 export interface ExecutiveMetric {
   title: string;
   value: string;
   target?: string;
   achievement?: string;
   trend: string;
-  icon: React.ReactNode;
+  icon: LucideIcon;
   aiInsight: string;
   benchmark?: string;
   savings?: string;
