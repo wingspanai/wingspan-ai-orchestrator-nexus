@@ -1,6 +1,11 @@
 
+import { MainLayout } from "@/components/Layout/MainLayout";
 import { AIAgentsDashboard } from '@/components/ProductLaunch/AIAgents/AIAgentsDashboard';
 
 export default function AIAgentsDashboardPage() {
-  return <AIAgentsDashboard />;
+  return (
+    <MainLayout>
+      <AIAgentsDashboard />
+    </MainLayout>
+  );
 }
