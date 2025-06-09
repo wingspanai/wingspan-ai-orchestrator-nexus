@@ -67,13 +67,18 @@ const data = {
   ],
   navMain: [
     {
-      title: "Core Intelligence",
+      title: "Executive Dashboard",
       items: [
         {
           title: "Executive Overview",
           url: "/executive",
           icon: LayoutDashboard,
           isActive: true,
+        },
+        {
+          title: "Business Overview",
+          url: "/business-overview",
+          icon: BarChart3,
         },
         {
           title: "AI Agent Store",
@@ -193,36 +198,8 @@ const data = {
       ],
     },
     {
-      title: "Operations & Infrastructure",
+      title: "Operations & Security",
       items: [
-        {
-          title: "Integration Hub",
-          url: "/integrations",
-          icon: Plug,
-          badge: "23",
-          items: [
-            {
-              title: "Connected Systems",
-              url: "/integrations#connected",
-            },
-            {
-              title: "Available Integrations",
-              url: "/integrations#available",
-            },
-            {
-              title: "Data Flow Monitor",
-              url: "/integrations#dataflow",
-            },
-            {
-              title: "Health Dashboard",
-              url: "/integrations#health",
-            },
-            {
-              title: "Connection Wizard",
-              url: "/integrations#wizard",
-            },
-          ],
-        },
         {
           title: "Security & Compliance",
           url: "/security",
@@ -251,6 +228,34 @@ const data = {
             {
               title: "Security Insights",
               url: "/security#insights",
+            },
+          ],
+        },
+        {
+          title: "Integration Hub",
+          url: "/integrations",
+          icon: Plug,
+          badge: "23",
+          items: [
+            {
+              title: "Connected Systems",
+              url: "/integrations#connected",
+            },
+            {
+              title: "Available Integrations",
+              url: "/integrations#available",
+            },
+            {
+              title: "Data Flow Monitor",
+              url: "/integrations#dataflow",
+            },
+            {
+              title: "Health Dashboard",
+              url: "/integrations#health",
+            },
+            {
+              title: "Connection Wizard",
+              url: "/integrations#wizard",
             },
           ],
         },
