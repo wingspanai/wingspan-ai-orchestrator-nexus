@@ -19,6 +19,7 @@ import ReportBuilder from "./pages/ReportBuilder";
 import NotFound from "./pages/NotFound";
 import StrategicPlanning from "./pages/StrategicPlanning";
 import AIHealthDashboard from "./pages/AIHealthDashboard";
+import KnowledgeManagement from "./pages/KnowledgeManagement";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/reports" element={<ReportBuilder />} />
           <Route path="/strategic-planning" element={<StrategicPlanning />} />
           <Route path="/ai-health" element={<AIHealthDashboard />} />
+          <Route path="/knowledge" element={<KnowledgeManagement />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
