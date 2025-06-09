@@ -13,7 +13,15 @@ import {
   Settings,
   ChevronRight,
   Building,
-  CreditCard
+  CreditCard,
+  BarChart3,
+  Zap,
+  Eye,
+  GitBranch,
+  Activity,
+  PieChart,
+  LineChart,
+  Database
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -63,6 +71,29 @@ const data = {
           badge: "150+",
         },
         {
+          title: "My Agents",
+          url: "/my-agents",
+          icon: Users,
+          items: [
+            {
+              title: "Deployed Agents",
+              url: "/my-agents#deployed",
+            },
+            {
+              title: "Agent Analytics",
+              url: "/my-agents#analytics",
+            },
+            {
+              title: "Health Monitor",
+              url: "/my-agents#health",
+            },
+            {
+              title: "Activity Logs",
+              url: "/my-agents#logs",
+            },
+          ],
+        },
+        {
           title: "Analytics Hub",
           url: "/analytics",
           icon: TrendingUp,
@@ -79,6 +110,10 @@ const data = {
               title: "Custom Reports",
               url: "/analytics/reports",
             },
+            {
+              title: "Data Visualization",
+              url: "/analytics/visualization",
+            },
           ],
         },
       ],
@@ -86,11 +121,6 @@ const data = {
     {
       title: "Operations",
       items: [
-        {
-          title: "Team Intelligence",
-          url: "/team",
-          icon: Users,
-        },
         {
           title: "Business Operations",
           url: "/operations",
@@ -108,12 +138,136 @@ const data = {
               title: "Customer Success",
               url: "/operations/customer",
             },
+            {
+              title: "Operational Metrics",
+              url: "/operations/metrics",
+            },
+          ],
+        },
+        {
+          title: "Integration Hub",
+          url: "/integrations",
+          icon: Plug,
+          badge: "23",
+          items: [
+            {
+              title: "Connected Systems",
+              url: "/integrations#connected",
+            },
+            {
+              title: "Available Integrations",
+              url: "/integrations#available",
+            },
+            {
+              title: "Data Flow Monitor",
+              url: "/integrations#dataflow",
+            },
+            {
+              title: "Health Dashboard",
+              url: "/integrations#health",
+            },
+            {
+              title: "Connection Wizard",
+              url: "/integrations#wizard",
+            },
           ],
         },
         {
           title: "Strategic Planning",
           url: "/strategy",
           icon: Target,
+          items: [
+            {
+              title: "Strategic Overview",
+              url: "/strategy/overview",
+            },
+            {
+              title: "Goal Tracking",
+              url: "/strategy/goals",
+            },
+            {
+              title: "Resource Planning",
+              url: "/strategy/resources",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "Intelligence & Trust",
+      items: [
+        {
+          title: "Competitive Intelligence",
+          url: "/competitive",
+          icon: Eye,
+          items: [
+            {
+              title: "Market Position",
+              url: "/competitive#position",
+            },
+            {
+              title: "Competitor Activity",
+              url: "/competitive#activity",
+            },
+            {
+              title: "Win/Loss Analysis",
+              url: "/competitive#winloss",
+            },
+            {
+              title: "Market Intelligence",
+              url: "/competitive#market",
+            },
+            {
+              title: "Strategic Recommendations",
+              url: "/competitive#strategy",
+            },
+          ],
+        },
+        {
+          title: "Trust & Compliance",
+          url: "/trust",
+          icon: Shield,
+          items: [
+            {
+              title: "Trust Score",
+              url: "/trust#score",
+            },
+            {
+              title: "Autonomy Controls",
+              url: "/trust#autonomy",
+            },
+            {
+              title: "Decision Log",
+              url: "/trust#decisions",
+            },
+            {
+              title: "Override Controls",
+              url: "/trust#overrides",
+            },
+            {
+              title: "Trust Analytics",
+              url: "/trust#analytics",
+            },
+          ],
+        },
+        {
+          title: "Knowledge Base",
+          url: "/knowledge",
+          icon: Brain,
+          items: [
+            {
+              title: "Documentation",
+              url: "/knowledge/docs",
+            },
+            {
+              title: "Best Practices",
+              url: "/knowledge/practices",
+            },
+            {
+              title: "Troubleshooting",
+              url: "/knowledge/troubleshooting",
+            },
+          ],
         },
       ],
     },
@@ -121,25 +275,27 @@ const data = {
       title: "Platform",
       items: [
         {
-          title: "Integration Hub",
-          url: "/integrations",
-          icon: Plug,
-          badge: "23",
-        },
-        {
-          title: "Security & Compliance",
-          url: "/security",
-          icon: Shield,
-        },
-        {
-          title: "Knowledge Base",
-          url: "/knowledge",
-          icon: Brain,
-        },
-        {
           title: "Settings",
           url: "/settings",
           icon: Settings,
+          items: [
+            {
+              title: "General Settings",
+              url: "/settings/general",
+            },
+            {
+              title: "User Management",
+              url: "/settings/users",
+            },
+            {
+              title: "API Configuration",
+              url: "/settings/api",
+            },
+            {
+              title: "Notifications",
+              url: "/settings/notifications",
+            },
+          ],
         },
       ],
     },
