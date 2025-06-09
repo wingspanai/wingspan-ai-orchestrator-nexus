@@ -6,8 +6,11 @@ import { ProductNavigator } from './ProductNavigator';
 import { GlobalHeader } from './GlobalHeader';
 import { AIAssistantPanel } from './AIAssistantPanel';
 import { ProductCreationWizard } from './ProductCreationWizard';
+import { IdeationDashboard } from './IdeationDashboard';
+import { DevelopmentDashboard } from './DevelopmentDashboard';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { useProductStore } from '@/store/productStore';
+import { useLocation } from 'react-router-dom';
 
 type ViewMode = 'timeline' | 'kanban' | 'calendar' | 'metrics';
 
@@ -18,6 +21,7 @@ export function ProductLaunchDashboard() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   
   const { selectedProduct } = useProductStore();
+  const location = useLocation();
 
   const handleCreateProduct = () => {
     setShowProductWizard(true);
@@ -25,6 +29,17 @@ export function ProductLaunchDashboard() {
 
   const toggleAIAssistant = () => {
     setShowAIAssistant(!showAIAssistant);
+  };
+
+  const getCurrentContent = () => {
+    if (location.pathname.includes('/ideation')) {
+      return <IdeationDashboard />;
+    }
+    if (location.pathname.includes('/development')) {
+      return <DevelopmentDashboard />;
+    }
+    // Add other views here as they're implemented
+    return <DashboardOverview />;
   };
 
   return (
@@ -51,7 +66,7 @@ export function ProductLaunchDashboard() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <h1 className="text-2xl font-semibold">
-                  {selectedProduct ? selectedProduct.name : 'Product Launch Dashboard'}
+                  {selectedProduct ? selectedProduct.name : getPageTitle(location.pathname)}
                 </h1>
                 {selectedProduct && (
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStageColor(selectedProduct.stage)}`}>
@@ -71,11 +86,7 @@ export function ProductLaunchDashboard() {
 
           {/* Dynamic Content Area */}
           <div className="flex-1 overflow-auto p-6">
-            {selectedProduct ? (
-              <ProductDetailView product={selectedProduct} view={currentView} />
-            ) : (
-              <DashboardOverview />
-            )}
+            {getCurrentContent()}
           </div>
         </div>
 
@@ -96,6 +107,15 @@ export function ProductLaunchDashboard() {
       </Dialog>
     </div>
   );
+}
+
+function getPageTitle(pathname: string) {
+  if (pathname.includes('/ideation')) return 'Product Ideation Hub';
+  if (pathname.includes('/development')) return 'Development Command Center';
+  if (pathname.includes('/go-to-market')) return 'Go-to-Market Strategy';
+  if (pathname.includes('/launch')) return 'Launch Management';
+  if (pathname.includes('/performance')) return 'Performance Analytics';
+  return 'Product Launch Dashboard';
 }
 
 function getStageColor(stage: string) {
@@ -131,21 +151,6 @@ function ViewToggle({ currentView, onViewChange }: { currentView: ViewMode; onVi
           {view.label}
         </Button>
       ))}
-    </div>
-  );
-}
-
-function ProductDetailView({ product, view }: { product: any; view: ViewMode }) {
-  return (
-    <div className="space-y-6">
-      <Card className="p-6">
-        <div className="text-center py-12">
-          <h3 className="text-xl font-semibold mb-2">Product Detail View</h3>
-          <p className="text-muted-foreground">
-            Detailed {view} view for {product.name} will be implemented here
-          </p>
-        </div>
-      </Card>
     </div>
   );
 }
