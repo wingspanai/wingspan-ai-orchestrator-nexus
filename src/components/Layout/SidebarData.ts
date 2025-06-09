@@ -58,3 +58,20 @@ export const sidebarData = [
     ]
   }
 ];
+
+// Navigation structure for the sidebar
+export const navMain = sidebarData;
+
+// Footer items for the sidebar
+export const footerItems = [
+  {
+    title: "Settings",
+    icon: "Settings",
+    path: "/settings"
+  },
+  {
+    title: "Help & Support", 
+    icon: "HelpCircle",
+    path: "/help"
+  }
+];
