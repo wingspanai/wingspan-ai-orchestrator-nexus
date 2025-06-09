@@ -165,6 +165,26 @@ export const useGTMStore = create<GTMStore>((set, get) => ({
   },
   primaryMessage: '',
   supportingMessages: [],
+  personas: [
+    {
+      id: '1',
+      name: 'Sarah Chen',
+      role: 'Data Analyst',
+      avatar: '👩‍💻',
+      painPoints: ['Manual data processing', 'Lack of real-time insights', 'Complex reporting tools'],
+      customMessage: 'Get instant insights without the complexity',
+      preferredChannels: ['LinkedIn', 'Industry Publications', 'Webinars'],
+    },
+    {
+      id: '2',
+      name: 'Marcus Johnson',
+      role: 'VP of Sales',
+      avatar: '👨‍💼',
+      painPoints: ['Poor pipeline visibility', 'Inefficient lead scoring', 'Fragmented data sources'],
+      customMessage: 'Accelerate sales with intelligent automation',
+      preferredChannels: ['Sales Events', 'Direct Outreach', 'Peer Networks'],
+    },
+  ],
   
   pricingModel: 'value-based',
   pricingTiers: [
