@@ -59,8 +59,11 @@ export const sidebarData = [
   }
 ];
 
-// Navigation structure for the sidebar
-export const navMain = sidebarData;
+// Navigation structure for the sidebar (fixing the navMain property issue)
+export const navMain = sidebarData.map(section => ({
+  ...section,
+  navMain: section.items
+}));
 
 // Footer items for the sidebar
 export const footerItems = [
