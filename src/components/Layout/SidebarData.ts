@@ -68,6 +68,7 @@ export const sidebarData = [
     items: [
       { title: "AI Agent Store", path: "/agents", icon: Bot },
       { title: "My Agents", path: "/my-agents", icon: Bot },
+      { title: "Specialists", path: "/specialists", icon: Brain },
       { title: "Trust Dashboard", path: "/trust", icon: Shield },
     ]
   },

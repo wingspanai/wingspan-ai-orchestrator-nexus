@@ -27,6 +27,7 @@ import ITInfrastructureDashboard from "./pages/ITInfrastructureDashboard";
 import EnterpriseResilienceDashboard from "./pages/EnterpriseResilienceDashboard";
 import ZeroKnowledgeComplianceDashboard from "./pages/ZeroKnowledgeComplianceDashboard";
 import UnifiedIntelligenceDashboard from "./pages/UnifiedIntelligenceDashboard";
+import SpecialistLLMDashboard from "./pages/SpecialistLLMDashboard";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -61,6 +62,7 @@ const App = () => (
           <Route path="/agents" element={<AIAgentStore />} />
           <Route path="/my-agents" element={<MyAgents />} />
           <Route path="/trust" element={<TrustDashboard />} />
+          <Route path="/specialists" element={<SpecialistLLMDashboard />} />
           <Route path="/integrations" element={<IntegrationHub />} />
           <Route path="/competitive" element={<CompetitiveIntelligence />} />
           <Route path="/finance" element={<FinancialDashboard />} />
