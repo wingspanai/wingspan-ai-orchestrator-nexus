@@ -60,6 +60,7 @@ const App = () => (
           <Route path="/finance" element={<FinancialDashboard />} />
           <Route path="/calendar" element={<CalendarIntelligence />} />
           <Route path="/security" element={<SecurityAuditDashboard />} />
+          <Route path="/legal" element={<LegalDashboard />} />
           <Route path="/reports" element={<ReportBuilder />} />
           <Route path="/strategic-planning" element={<StrategicPlanning />} />
           <Route path="/ai-health" element={<AIHealthDashboard />} />

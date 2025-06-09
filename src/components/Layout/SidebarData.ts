@@ -86,6 +86,7 @@ export const sidebarData = [
       { title: "Financial Dashboard", path: "/finance", icon: DollarSign },
       { title: "Calendar Intelligence", path: "/calendar", icon: Calendar },
       { title: "Security Audit", path: "/security", icon: ShieldCheck },
+      { title: "Legal & Compliance", path: "/legal", icon: Shield },
     ]
   }
 ];
