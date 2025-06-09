@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -22,6 +23,7 @@ import KnowledgeManagement from "./pages/KnowledgeManagement";
 import ProductLaunchDashboard from "./pages/ProductLaunchDashboard";
 import HRDashboard from "./pages/HRDashboard";
 import LegalDashboard from "./pages/LegalDashboard";
+import ITInfrastructureDashboard from "./pages/ITInfrastructureDashboard";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -61,6 +63,7 @@ const App = () => (
           <Route path="/calendar" element={<CalendarIntelligence />} />
           <Route path="/security" element={<SecurityAuditDashboard />} />
           <Route path="/legal" element={<LegalDashboard />} />
+          <Route path="/infrastructure" element={<ITInfrastructureDashboard />} />
           <Route path="/reports" element={<ReportBuilder />} />
           <Route path="/strategic-planning" element={<StrategicPlanning />} />
           <Route path="/ai-health" element={<AIHealthDashboard />} />

@@ -19,7 +19,8 @@ import {
   Lightbulb,
   GitBranch,
   TrendingUp,
-  Users as UsersIcon
+  Users as UsersIcon,
+  Server
 } from "lucide-react";
 
 export const sidebarData = [
@@ -85,6 +86,7 @@ export const sidebarData = [
       { title: "Integration Hub", path: "/integrations", icon: Plug },
       { title: "Financial Dashboard", path: "/finance", icon: DollarSign },
       { title: "Calendar Intelligence", path: "/calendar", icon: Calendar },
+      { title: "IT Infrastructure", path: "/infrastructure", icon: Server },
       { title: "Security Audit", path: "/security", icon: ShieldCheck },
       { title: "Legal & Compliance", path: "/legal", icon: Shield },
     ]
