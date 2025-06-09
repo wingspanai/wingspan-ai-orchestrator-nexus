@@ -1,0 +1,175 @@
+
+import { GTMProduct, PricingTier, Channel, Persona, MarketIntelItem } from '../types/gtm';
+
+export const mockProducts: GTMProduct[] = [
+  {
+    id: '1',
+    name: 'AI Analytics Platform',
+    launchDate: '2024-07-15',
+    stage: 'positioning',
+    targetRevenue: 2.5,
+    totalAddressableMarket: 45,
+    customerAcquisitionCost: 120,
+    launchReadiness: 73,
+    campaignChannels: 8,
+    channelsReady: 6,
+    totalChannels: 8,
+  },
+  {
+    id: '2',
+    name: 'Smart CRM Integration',
+    launchDate: '2024-08-20',
+    stage: 'pricing',
+    targetRevenue: 1.8,
+    totalAddressableMarket: 28,
+    customerAcquisitionCost: 85,
+    launchReadiness: 45,
+    campaignChannels: 6,
+    channelsReady: 3,
+    totalChannels: 6,
+  },
+];
+
+export const mockPricingTiers: PricingTier[] = [
+  {
+    id: '1',
+    name: 'Starter',
+    price: 49,
+    period: 'month',
+    featured: false,
+    features: [
+      { text: 'Up to 1,000 data points', included: true },
+      { text: 'Basic analytics', included: true },
+      { text: 'Email support', included: true },
+      { text: 'Advanced AI insights', included: false },
+    ],
+    projectedAdoption: 35,
+    projectedRevenue: 85,
+  },
+  {
+    id: '2',
+    name: 'Professional',
+    price: 149,
+    period: 'month',
+    featured: true,
+    features: [
+      { text: 'Up to 10,000 data points', included: true },
+      { text: 'Advanced analytics', included: true },
+      { text: 'Priority support', included: true },
+      { text: 'AI-powered insights', included: true },
+      { text: 'Custom integrations', included: true },
+    ],
+    projectedAdoption: 45,
+    projectedRevenue: 335,
+  },
+  {
+    id: '3',
+    name: 'Enterprise',
+    price: 399,
+    period: 'month',
+    featured: false,
+    features: [
+      { text: 'Unlimited data points', included: true },
+      { text: 'Enterprise analytics', included: true },
+      { text: 'Dedicated support', included: true },
+      { text: 'Advanced AI & ML', included: true },
+      { text: 'White-label options', included: true },
+      { text: 'SLA guarantees', included: true },
+    ],
+    projectedAdoption: 20,
+    projectedRevenue: 399,
+  },
+];
+
+export const mockChannels: Channel[] = [
+  {
+    id: '1',
+    name: 'Content Marketing',
+    icon: '📝',
+    budget: 120,
+    expectedROI: 340,
+    cac: 45,
+    healthScore: 92,
+    status: 'active',
+    strategy: 'Educational content to build thought leadership and drive organic discovery',
+    targetLeads: 850,
+    targetConversion: 12,
+    targetRevenue: 380,
+    tactics: [
+      { id: '1', name: 'Blog Content Series', timeline: '8 weeks', owner: 'Content Team', status: 'in-progress' },
+      { id: '2', name: 'Video Tutorials', timeline: '6 weeks', owner: 'Video Team', status: 'planned' },
+    ],
+    crmIntegrated: true,
+    analyticsSetup: true,
+    automationReady: true,
+  },
+  {
+    id: '2',
+    name: 'Paid Social',
+    icon: '📱',
+    budget: 200,
+    expectedROI: 280,
+    cac: 65,
+    healthScore: 78,
+    status: 'active',
+    strategy: 'Targeted social media advertising to reach decision makers',
+    targetLeads: 650,
+    targetConversion: 8,
+    targetRevenue: 425,
+    tactics: [
+      { id: '3', name: 'LinkedIn Campaign', timeline: '4 weeks', owner: 'Paid Team', status: 'completed' },
+      { id: '4', name: 'Twitter Ads', timeline: '3 weeks', owner: 'Paid Team', status: 'in-progress' },
+    ],
+    crmIntegrated: true,
+    analyticsSetup: false,
+    automationReady: true,
+  },
+];
+
+export const mockPersonas: Persona[] = [
+  {
+    id: '1',
+    name: 'Sarah Chen',
+    role: 'Data Analyst',
+    avatar: '👩‍💻',
+    painPoints: ['Manual data processing', 'Lack of real-time insights', 'Complex reporting tools'],
+    customMessage: 'Get instant insights without the complexity',
+    preferredChannels: ['LinkedIn', 'Industry Publications', 'Webinars'],
+  },
+  {
+    id: '2',
+    name: 'Marcus Johnson',
+    role: 'VP of Sales',
+    avatar: '👨‍💼',
+    painPoints: ['Poor pipeline visibility', 'Inefficient lead scoring', 'Fragmented data sources'],
+    customMessage: 'Accelerate sales with intelligent automation',
+    preferredChannels: ['Sales Events', 'Direct Outreach', 'Peer Networks'],
+  },
+];
+
+export const mockMarketIntel: MarketIntelItem[] = [
+  {
+    id: '1',
+    priority: 'high',
+    type: 'competitor',
+    timestamp: new Date(Date.now() - 2 * 60 * 1000),
+    content: 'Competitor X just announced a similar product launching 2 weeks before our date. Recommend accelerating timeline.',
+    badge: 'Urgent',
+  },
+  {
+    id: '2',
+    priority: 'medium',
+    type: 'market-shift',
+    timestamp: new Date(Date.now() - 60 * 60 * 1000),
+    content: 'Search volume for "AI analytics" increased 45% this week. Opportunity to capitalize on growing interest.',
+    badge: 'Market Shift',
+  },
+  {
+    id: '3',
+    priority: 'low',
+    type: 'insight',
+    timestamp: new Date(Date.now() - 3 * 60 * 60 * 1000),
+    content: 'Similar products in Asian markets showing 3x higher engagement with video content vs. static images.',
+    badge: 'Insight',
+  },
+];
