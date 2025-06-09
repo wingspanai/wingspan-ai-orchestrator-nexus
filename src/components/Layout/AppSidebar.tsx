@@ -24,7 +24,10 @@ import {
   Database,
   Calendar,
   Clock,
-  MessageSquare
+  MessageSquare,
+  FileCheck,
+  AlertTriangle,
+  Lock
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -42,6 +45,9 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
 } from "@/components/ui/sidebar";
 
 const data = {
@@ -59,7 +65,7 @@ const data = {
   ],
   navMain: [
     {
-      title: "Intelligence",
+      title: "Core Intelligence",
       items: [
         {
           title: "Executive Overview",
@@ -96,57 +102,11 @@ const data = {
             },
           ],
         },
-        {
-          title: "Analytics Hub",
-          url: "/analytics",
-          icon: TrendingUp,
-          items: [
-            {
-              title: "Business Performance",
-              url: "/analytics/business",
-            },
-            {
-              title: "Predictive Analytics",
-              url: "/analytics/predictive",
-            },
-            {
-              title: "Custom Reports",
-              url: "/analytics/reports",
-            },
-            {
-              title: "Data Visualization",
-              url: "/analytics/visualization",
-            },
-          ],
-        },
       ],
     },
     {
-      title: "Operations",
+      title: "Business Intelligence",
       items: [
-        {
-          title: "Business Operations",
-          url: "/operations",
-          icon: Briefcase,
-          items: [
-            {
-              title: "Finance Dashboard",
-              url: "/finance",
-            },
-            {
-              title: "Sales Pipeline",
-              url: "/operations/sales",
-            },
-            {
-              title: "Customer Success",
-              url: "/operations/customer",
-            },
-            {
-              title: "Operational Metrics",
-              url: "/operations/metrics",
-            },
-          ],
-        },
         {
           title: "Financial Intelligence",
           url: "/finance",
@@ -202,6 +162,38 @@ const data = {
           ],
         },
         {
+          title: "Competitive Intelligence",
+          url: "/competitive",
+          icon: Eye,
+          items: [
+            {
+              title: "Market Position",
+              url: "/competitive#position",
+            },
+            {
+              title: "Competitor Activity",
+              url: "/competitive#activity",
+            },
+            {
+              title: "Win/Loss Analysis",
+              url: "/competitive#winloss",
+            },
+            {
+              title: "Market Intelligence",
+              url: "/competitive#market",
+            },
+            {
+              title: "Strategic Recommendations",
+              url: "/competitive#strategy",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "Operations & Infrastructure",
+      items: [
+        {
           title: "Integration Hub",
           url: "/integrations",
           icon: Plug,
@@ -230,60 +222,45 @@ const data = {
           ],
         },
         {
-          title: "Strategic Planning",
-          url: "/strategy",
-          icon: Target,
+          title: "Security & Compliance",
+          url: "/security",
+          icon: Shield,
           items: [
             {
-              title: "Strategic Overview",
-              url: "/strategy/overview",
+              title: "Security Overview",
+              url: "/security",
             },
             {
-              title: "Goal Tracking",
-              url: "/strategy/goals",
+              title: "Real-time Monitor",
+              url: "/security#monitor",
             },
             {
-              title: "Resource Planning",
-              url: "/strategy/resources",
+              title: "Audit Trail",
+              url: "/security#audit",
+            },
+            {
+              title: "Compliance Dashboard",
+              url: "/security#compliance",
+            },
+            {
+              title: "Incident Response",
+              url: "/security#incidents",
+            },
+            {
+              title: "Security Insights",
+              url: "/security#insights",
             },
           ],
         },
       ],
     },
     {
-      title: "Intelligence & Trust",
+      title: "Trust & Governance",
       items: [
         {
-          title: "Competitive Intelligence",
-          url: "/competitive",
-          icon: Eye,
-          items: [
-            {
-              title: "Market Position",
-              url: "/competitive#position",
-            },
-            {
-              title: "Competitor Activity",
-              url: "/competitive#activity",
-            },
-            {
-              title: "Win/Loss Analysis",
-              url: "/competitive#winloss",
-            },
-            {
-              title: "Market Intelligence",
-              url: "/competitive#market",
-            },
-            {
-              title: "Strategic Recommendations",
-              url: "/competitive#strategy",
-            },
-          ],
-        },
-        {
-          title: "Trust & Compliance",
+          title: "Trust & Controls",
           url: "/trust",
-          icon: Shield,
+          icon: FileCheck,
           items: [
             {
               title: "Trust Score",
@@ -329,7 +306,7 @@ const data = {
       ],
     },
     {
-      title: "Platform",
+      title: "Platform Administration",
       items: [
         {
           title: "Settings",
@@ -377,46 +354,63 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         {data.navMain.map((section) => (
-          <SidebarGroup key={section.title}>
-            <SidebarGroupLabel>{section.title}</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {section.items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton 
-                      asChild 
-                      tooltip={item.title}
-                      isActive={location.pathname === item.url}
-                    >
-                      <Link to={item.url} className="flex items-center gap-2">
-                        {item.icon && <item.icon />}
-                        <span>{item.title}</span>
-                        {item.badge && (
-                          <span className="ml-auto bg-sidebar-accent text-sidebar-accent-foreground px-1.5 py-0.5 rounded text-xs">
-                            {item.badge}
-                          </span>
-                        )}
-                        {item.items && <ChevronRight className="ml-auto size-4" />}
-                      </Link>
-                    </SidebarMenuButton>
-                    {item.items?.length ? (
-                      <SidebarMenuSub>
-                        {item.items.map((subItem) => (
-                          <SidebarMenuSubItem key={subItem.title}>
-                            <SidebarMenuSubButton asChild>
-                              <Link to={subItem.url}>
-                                <span>{subItem.title}</span>
-                              </Link>
-                            </SidebarMenuSubButton>
-                          </SidebarMenuSubItem>
-                        ))}
-                      </SidebarMenuSub>
-                    ) : null}
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+          <Collapsible key={section.title} defaultOpen className="group/collapsible">
+            <SidebarGroup>
+              <SidebarGroupLabel asChild>
+                <CollapsibleTrigger className="group/trigger flex w-full items-center justify-between text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground [&[data-state=open]>svg]:rotate-90">
+                  {section.title}
+                  <ChevronRight className="ml-auto transition-transform duration-200" />
+                </CollapsibleTrigger>
+              </SidebarGroupLabel>
+              <CollapsibleContent>
+                <SidebarGroupContent>
+                  <SidebarMenu>
+                    {section.items.map((item) => (
+                      <Collapsible key={item.title} className="group/item">
+                        <SidebarMenuItem>
+                          <SidebarMenuButton 
+                            asChild 
+                            tooltip={item.title}
+                            isActive={location.pathname === item.url}
+                          >
+                            <Link to={item.url} className="flex items-center gap-2">
+                              {item.icon && <item.icon />}
+                              <span>{item.title}</span>
+                              {item.badge && (
+                                <span className="ml-auto bg-sidebar-accent text-sidebar-accent-foreground px-1.5 py-0.5 rounded text-xs">
+                                  {item.badge}
+                                </span>
+                              )}
+                              {item.items && (
+                                <CollapsibleTrigger asChild>
+                                  <ChevronRight className="ml-auto size-4 transition-transform duration-200 group-data-[state=open]/item:rotate-90" />
+                                </CollapsibleTrigger>
+                              )}
+                            </Link>
+                          </SidebarMenuButton>
+                          {item.items?.length ? (
+                            <CollapsibleContent>
+                              <SidebarMenuSub>
+                                {item.items.map((subItem) => (
+                                  <SidebarMenuSubItem key={subItem.title}>
+                                    <SidebarMenuSubButton asChild>
+                                      <Link to={subItem.url}>
+                                        <span>{subItem.title}</span>
+                                      </Link>
+                                    </SidebarMenuSubButton>
+                                  </SidebarMenuSubItem>
+                                ))}
+                              </SidebarMenuSub>
+                            </CollapsibleContent>
+                          ) : null}
+                        </SidebarMenuItem>
+                      </Collapsible>
+                    ))}
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </CollapsibleContent>
+            </SidebarGroup>
+          </Collapsible>
         ))}
       </SidebarContent>
       <SidebarFooter>

@@ -13,6 +13,7 @@ import IntegrationHub from "./pages/IntegrationHub";
 import CompetitiveIntelligence from "./pages/CompetitiveIntelligence";
 import FinancialDashboard from "./pages/FinancialDashboard";
 import CalendarIntelligence from "./pages/CalendarIntelligence";
+import SecurityAuditDashboard from "./pages/SecurityAuditDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient({
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/competitive" element={<CompetitiveIntelligence />} />
           <Route path="/finance" element={<FinancialDashboard />} />
           <Route path="/calendar" element={<CalendarIntelligence />} />
+          <Route path="/security" element={<SecurityAuditDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
