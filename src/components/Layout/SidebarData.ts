@@ -13,7 +13,8 @@ import {
   CreditCard,
   Calendar,
   FileText,
-  Target
+  Target,
+  Activity
 } from "lucide-react";
 
 export const sidebarData = {
@@ -43,6 +44,12 @@ export const sidebarData = {
           title: "Business Overview",
           url: "/business-overview",
           icon: BarChart3,
+        },
+        {
+          title: "AI Health Monitor",
+          url: "/ai-health",
+          icon: Activity,
+          badge: "Beta",
         },
         {
           title: "AI Agent Store",

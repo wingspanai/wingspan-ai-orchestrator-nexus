@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,6 +18,7 @@ import SecurityAuditDashboard from "./pages/SecurityAuditDashboard";
 import ReportBuilder from "./pages/ReportBuilder";
 import NotFound from "./pages/NotFound";
 import StrategicPlanning from "./pages/StrategicPlanning";
+import AIHealthDashboard from "./pages/AIHealthDashboard";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -47,6 +49,7 @@ const App = () => (
           <Route path="/security" element={<SecurityAuditDashboard />} />
           <Route path="/reports" element={<ReportBuilder />} />
           <Route path="/strategic-planning" element={<StrategicPlanning />} />
+          <Route path="/ai-health" element={<AIHealthDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
