@@ -3,7 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { MetricCard } from '@/components/Dashboard/MetricCard';
 import { useResilienceStore } from '@/store/resilienceStore';
-import { ShieldCheck, Clock, AlertOff, Brain, Activity, DollarSign } from 'lucide-react';
+import { ShieldCheck, Clock, ShieldOff, Brain, Activity, DollarSign } from 'lucide-react';
 
 export function ResilienceHeader() {
   const {
@@ -76,7 +76,7 @@ export function ResilienceHeader() {
           title="Prevented Outages"
           value={preventedOutages.toString()}
           subtitle="This month"
-          icon={<AlertOff className="w-5 h-5" />}
+          icon={<ShieldOff className="w-5 h-5" />}
           status="healthy"
           className="bg-white/10 border-white/20 text-white"
         />
