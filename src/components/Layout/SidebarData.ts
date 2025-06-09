@@ -1,4 +1,3 @@
-
 import {
   LayoutDashboard,
   Bot,
@@ -12,7 +11,8 @@ import {
   Settings,
   Building,
   CreditCard,
-  Calendar
+  Calendar,
+  FileText
 } from "lucide-react";
 
 export const sidebarData = {
@@ -77,6 +77,29 @@ export const sidebarData = {
     {
       title: "Business Intelligence",
       items: [
+        {
+          title: "Report Builder",
+          url: "/reports",
+          icon: FileText,
+          items: [
+            {
+              title: "My Reports",
+              url: "/reports#my-reports",
+            },
+            {
+              title: "Templates",
+              url: "/reports#templates",
+            },
+            {
+              title: "Scheduled Reports",
+              url: "/reports#scheduled",
+            },
+            {
+              title: "Shared Reports",
+              url: "/reports#shared",
+            },
+          ],
+        },
         {
           title: "Financial Intelligence",
           url: "/finance",
