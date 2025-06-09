@@ -128,7 +128,7 @@ const data = {
           items: [
             {
               title: "Finance Dashboard",
-              url: "/operations/finance",
+              url: "/finance",
             },
             {
               title: "Sales Pipeline",
@@ -141,6 +141,33 @@ const data = {
             {
               title: "Operational Metrics",
               url: "/operations/metrics",
+            },
+          ],
+        },
+        {
+          title: "Financial Intelligence",
+          url: "/finance",
+          icon: BarChart3,
+          items: [
+            {
+              title: "Financial Overview",
+              url: "/finance",
+            },
+            {
+              title: "Revenue Analytics",
+              url: "/finance#revenue",
+            },
+            {
+              title: "Expense Management",
+              url: "/finance#expenses",
+            },
+            {
+              title: "Financial Projections",
+              url: "/finance#projections",
+            },
+            {
+              title: "Budget Tracking",
+              url: "/finance#budget",
             },
           ],
         },
