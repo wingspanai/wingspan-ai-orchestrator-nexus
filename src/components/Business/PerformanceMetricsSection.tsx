@@ -9,7 +9,7 @@ import {
   TrendingUp, 
   AlertCircle, 
   BarChart, 
-  ShowChart,
+  LineChart,
   ChevronRight
 } from 'lucide-react';
 
@@ -105,7 +105,7 @@ export function PerformanceMetricsSection({ timeframe }: PerformanceMetricsSecti
               <CardTitle>Key Performance Indicators</CardTitle>
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="sm">
-                  <ShowChart className="h-4 w-4" />
+                  <LineChart className="h-4 w-4" />
                 </Button>
                 <Button variant="outline" size="sm">
                   <BarChart className="h-4 w-4" />
@@ -116,7 +116,7 @@ export function PerformanceMetricsSection({ timeframe }: PerformanceMetricsSecti
           <CardContent>
             <div className="h-64 flex items-center justify-center bg-muted/30 rounded-lg mb-4">
               <div className="text-center text-muted-foreground">
-                <ShowChart className="h-12 w-12 mx-auto mb-2" />
+                <LineChart className="h-12 w-12 mx-auto mb-2" />
                 <p>Performance Chart Visualization</p>
                 <p className="text-sm">Revenue, Growth, Efficiency Trends</p>
               </div>
