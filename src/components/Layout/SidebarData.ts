@@ -45,6 +45,7 @@ export const sidebarData = [
     path: "/executive",
     items: [
       { title: "Business Overview", path: "/business-overview", icon: Building2 },
+      { title: "Financial Dashboard", path: "/finance", icon: DollarSign },
       { title: "Strategic Planning", path: "/strategic-planning", icon: Target },
       { title: "AI Health", path: "/ai-health", icon: Activity },
       { title: "Unified Intelligence", path: "/executive/unified-intelligence", icon: Brain },
@@ -88,7 +89,6 @@ export const sidebarData = [
     path: "/integrations",
     items: [
       { title: "Integration Hub", path: "/integrations", icon: Plug },
-      { title: "Financial Dashboard", path: "/finance", icon: DollarSign },
       { title: "Calendar Intelligence", path: "/calendar", icon: Calendar },
       { title: "IT Infrastructure", path: "/infrastructure", icon: Server },
       { title: "Enterprise Resilience", path: "/resilience", icon: RefreshCw },
