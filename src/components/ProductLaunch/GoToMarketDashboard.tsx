@@ -24,13 +24,15 @@ import {
   Settings,
   AlertCircle,
   Clock,
-  CheckCircle
+  CheckCircle,
+  BarChart
 } from 'lucide-react';
 import { useGTMStore } from '@/store/gtmStore';
 import { PositioningStrategy } from './PositioningStrategy';
 import { PricingStrategy } from './PricingStrategy';
 import { ChannelStrategy } from './ChannelStrategy';
 import { MarketIntelligenceFeed } from './MarketIntelligenceFeed';
+import { PerformanceDashboard } from './PerformanceDashboard';
 
 export function GoToMarketDashboard() {
   const { 
@@ -60,6 +62,11 @@ export function GoToMarketDashboard() {
   };
 
   const currentProduct = selectedProduct || products[0];
+
+  // If Performance tab is selected, render the full PerformanceDashboard
+  if (activeTab === 'performance') {
+    return <PerformanceDashboard />;
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -249,6 +256,18 @@ export function GoToMarketDashboard() {
               >
                 <Rocket className="w-4 h-4" />
                 Launch Execution
+              </button>
+
+              <button
+                onClick={() => setActiveTab('performance')}
+                className={`flex items-center gap-2 py-2 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'performance' 
+                    ? 'border-primary text-primary' 
+                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <BarChart className="w-4 h-4" />
+                Performance Analytics
               </button>
             </div>
           </div>

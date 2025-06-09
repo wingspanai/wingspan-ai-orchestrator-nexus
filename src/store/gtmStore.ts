@@ -88,7 +88,7 @@ export interface MarketIntelItem {
 export interface GTMStore {
   selectedProduct: GTMProduct | null;
   products: GTMProduct[];
-  activeTab: 'positioning' | 'pricing' | 'channels' | 'campaign' | 'launch';
+  activeTab: 'positioning' | 'pricing' | 'channels' | 'campaign' | 'launch' | 'performance';
   
   // Positioning
   valueProposition: ValueProposition;
@@ -111,7 +111,7 @@ export interface GTMStore {
   
   // Actions
   setSelectedProduct: (product: GTMProduct | null) => void;
-  setActiveTab: (tab: 'positioning' | 'pricing' | 'channels' | 'campaign' | 'launch') => void;
+  setActiveTab: (tab: 'positioning' | 'pricing' | 'channels' | 'campaign' | 'launch' | 'performance') => void;
   updateValueProposition: (updates: Partial<ValueProposition>) => void;
   addSupportingMessage: (message: string) => void;
   removeSupportingMessage: (index: number) => void;
