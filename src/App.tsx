@@ -1,5 +1,5 @@
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -25,7 +25,7 @@ function App() {
       <TooltipProvider>
         <Router>
           <Routes>
-            <Route path="/" element={<MainLayout />}>
+            <Route path="/" element={<MainLayout><Outlet /></MainLayout>}>
               <Route index element={<Index />} />
               <Route path="agents" element={<AIAgentStore />} />
               <Route path="business" element={<BusinessOverview />} />
