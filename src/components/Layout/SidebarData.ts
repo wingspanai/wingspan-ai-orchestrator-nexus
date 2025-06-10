@@ -23,80 +23,82 @@ import {
   Server,
   RefreshCw,
   Key,
-  Zap
+  Zap,
+  Home,
+  PieChart,
+  Workflow,
+  UserCheck,
+  AlertTriangle
 } from "lucide-react";
 
 export const sidebarData = [
   {
-    title: "Product Launch",
-    icon: Rocket,
-    path: "/product-launch",
+    title: "Command Center",
+    icon: Home,
+    path: "/",
     items: [
-      { title: "Dashboard", path: "/product-launch", icon: Rocket },
-      { title: "Ideation", path: "/product-launch/ideation", icon: Lightbulb },
-      { title: "Development", path: "/product-launch/development", icon: GitBranch },
-      { title: "Go-to-Market", path: "/product-launch/go-to-market", icon: Target },
-      { title: "Launch", path: "/product-launch/launch", icon: Rocket },
-      { title: "Performance", path: "/product-launch/performance", icon: TrendingUp },
+      { title: "Executive Overview", path: "/", icon: Home },
     ]
   },
   {
-    title: "Executive Dashboard",
-    icon: BarChart3,
-    path: "/executive",
+    title: "Business Performance",
+    icon: TrendingUp,
+    path: "/business",
     items: [
       { title: "Business Overview", path: "/business-overview", icon: Building2 },
       { title: "Financial Dashboard", path: "/finance", icon: DollarSign },
       { title: "Strategic Planning", path: "/strategic-planning", icon: Target },
-      { title: "AI Health", path: "/ai-health", icon: Activity },
-      { title: "Unified Intelligence", path: "/executive/unified-intelligence", icon: Brain },
-      { title: "Genius Dashboard", path: "/executive/genius-dashboard", icon: Zap },
+      { title: "Product Launch", path: "/product-launch", icon: Rocket },
+      { title: "Competitive Intelligence", path: "/competitive", icon: Search },
+    ]
+  },
+  {
+    title: "Operations Excellence", 
+    icon: Settings,
+    path: "/operations",
+    items: [
+      { title: "AI Operations", path: "/ai-health", icon: Activity },
+      { title: "AI Agent Store", path: "/agents", icon: Bot },
+      { title: "My Agents", path: "/my-agents", icon: Bot },
+      { title: "Specialists", path: "/specialists", icon: Brain },
+      { title: "Integration Hub", path: "/integrations", icon: Plug },
+      { title: "IT Infrastructure", path: "/infrastructure", icon: Server },
+      { title: "Enterprise Resilience", path: "/resilience", icon: RefreshCw },
     ]
   },
   {
     title: "People & Culture",
     icon: UsersIcon,
-    path: "/hr",
+    path: "/people", 
     items: [
       { title: "HR Dashboard", path: "/hr", icon: UsersIcon },
       { title: "Performance", path: "/hr/performance", icon: Target },
       { title: "Talent Acquisition", path: "/hr/talent", icon: Search },
       { title: "Engagement", path: "/hr/engagement", icon: Activity },
-    ]
-  },
-  {
-    title: "AI Management",
-    icon: Bot,
-    path: "/agents",
-    items: [
-      { title: "AI Agent Store", path: "/agents", icon: Bot },
-      { title: "My Agents", path: "/my-agents", icon: Bot },
-      { title: "Specialists", path: "/specialists", icon: Brain },
-      { title: "Trust Dashboard", path: "/trust", icon: Shield },
-    ]
-  },
-  {
-    title: "Business Intelligence",
-    icon: Search,
-    path: "/competitive",
-    items: [
-      { title: "Competitive Intelligence", path: "/competitive", icon: Search },
-      { title: "Knowledge Management", path: "/knowledge", icon: Brain },
-      { title: "Report Builder", path: "/reports", icon: FileText },
-    ]
-  },
-  {
-    title: "Operations",
-    icon: Plug,
-    path: "/integrations",
-    items: [
-      { title: "Integration Hub", path: "/integrations", icon: Plug },
       { title: "Calendar Intelligence", path: "/calendar", icon: Calendar },
-      { title: "IT Infrastructure", path: "/infrastructure", icon: Server },
-      { title: "Enterprise Resilience", path: "/resilience", icon: RefreshCw },
+    ]
+  },
+  {
+    title: "Risk & Compliance",
+    icon: Shield,
+    path: "/risk",
+    items: [
+      { title: "Trust Dashboard", path: "/trust", icon: Shield },
       { title: "Security Audit", path: "/security", icon: ShieldCheck },
       { title: "Legal & Compliance", path: "/legal", icon: Shield },
       { title: "Zero-Knowledge Compliance", path: "/legal/zero-knowledge", icon: Key },
+    ]
+  },
+  {
+    title: "Analytics & Intelligence",
+    icon: BarChart3,
+    path: "/analytics",
+    items: [
+      { title: "Executive Dashboard", path: "/executive", icon: BarChart3 },
+      { title: "Unified Intelligence", path: "/executive/unified-intelligence", icon: Brain },
+      { title: "Genius Dashboard", path: "/executive/genius-dashboard", icon: Zap },
+      { title: "Knowledge Management", path: "/knowledge", icon: Brain },
+      { title: "Report Builder", path: "/reports", icon: FileText },
     ]
   }
 ];
