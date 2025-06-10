@@ -13,7 +13,7 @@ export interface PredictionEngine {
   predictionsToday: number;
   businessImpact: string;
   recommendedAction: string;
-  actionPriority: 'high' | 'medium' | 'low';
+  actionPriority: 'critical' | 'high' | 'medium' | 'low';
   howItWorks: string;
   keyFactors: string[];
   businessValue: string;
