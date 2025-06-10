@@ -1,4 +1,3 @@
-
 import {
   BarChart3,
   Building2,
@@ -22,7 +21,8 @@ import {
   Users as UsersIcon,
   Server,
   RefreshCw,
-  Key
+  Key,
+  Zap
 } from "lucide-react";
 
 export const sidebarData = [
@@ -49,6 +49,7 @@ export const sidebarData = [
       { title: "Strategic Planning", path: "/strategic-planning", icon: Target },
       { title: "AI Health", path: "/ai-health", icon: Activity },
       { title: "Unified Intelligence", path: "/executive/unified-intelligence", icon: Brain },
+      { title: "Genius Dashboard", path: "/executive/genius-dashboard", icon: Zap },
     ]
   },
   {

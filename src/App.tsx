@@ -28,6 +28,7 @@ import EnterpriseResilienceDashboard from "./pages/EnterpriseResilienceDashboard
 import ZeroKnowledgeComplianceDashboard from "./pages/ZeroKnowledgeComplianceDashboard";
 import UnifiedIntelligenceDashboard from "./pages/UnifiedIntelligenceDashboard";
 import SpecialistLLMDashboard from "./pages/SpecialistLLMDashboard";
+import GeniusDashboard from "./pages/GeniusDashboard";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/product-launch/performance" element={<ProductLaunchDashboard />} />
           <Route path="/executive" element={<ExecutiveOverview />} />
           <Route path="/executive/unified-intelligence" element={<UnifiedIntelligenceDashboard />} />
+          <Route path="/executive/genius-dashboard" element={<GeniusDashboard />} />
           <Route path="/business-overview" element={<BusinessOverview />} />
           <Route path="/hr" element={<HRDashboard />} />
           <Route path="/hr/performance" element={<HRDashboard />} />
