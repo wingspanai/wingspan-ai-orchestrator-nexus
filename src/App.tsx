@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -29,6 +28,7 @@ import ZeroKnowledgeComplianceDashboard from "./pages/ZeroKnowledgeComplianceDas
 import UnifiedIntelligenceDashboard from "./pages/UnifiedIntelligenceDashboard";
 import SpecialistLLMDashboard from "./pages/SpecialistLLMDashboard";
 import GeniusDashboard from "./pages/GeniusDashboard";
+import SettingsPage from "./pages/SettingsPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -78,6 +78,8 @@ const App = () => (
           <Route path="/strategic-planning" element={<StrategicPlanning />} />
           <Route path="/ai-health" element={<AIHealthDashboard />} />
           <Route path="/knowledge" element={<KnowledgeManagement />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/help" element={<SettingsPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
