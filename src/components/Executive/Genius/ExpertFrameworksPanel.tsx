@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { useGeniusStore } from '@/store/geniusStore';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { CheckCircle, AlertCircle, RefreshCw } from 'lucide-react';
+import { CheckCircle, AlertCircle, RefreshCw, Lightbulb } from 'lucide-react';
 
 interface ExpertFrameworksPanelProps {
   detailed?: boolean;
@@ -39,9 +39,10 @@ export function ExpertFrameworksPanel({ detailed = false }: ExpertFrameworksPane
     <Card className={`bg-slate-800/50 border-slate-700 ${detailed ? 'col-span-full' : ''}`}>
       <CardHeader>
         <CardTitle className="text-white flex items-center gap-2">
-          Expert Framework Integration
+          <Lightbulb className="h-5 w-5 text-yellow-500" />
+          Expert Knowledge Integration
           <Badge className="bg-purple-500/20 text-purple-100 border-purple-500/50">
-            {expertFrameworks.filter(f => f.integrationStatus === 'active').length} Active
+            {expertFrameworks.filter(f => f.integrationStatus === 'active').length} Active Frameworks
           </Badge>
         </CardTitle>
       </CardHeader>
@@ -70,8 +71,9 @@ export function ExpertFrameworksPanel({ detailed = false }: ExpertFrameworksPane
               
               {detailed && (
                 <div className="space-y-2">
+                  <div className="text-sm text-slate-300">{framework.businessApplication}</div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-300">Contribution Score</span>
+                    <span className="text-slate-300">Business Impact Score</span>
                     <span className="text-slate-400">{framework.contributionScore}%</span>
                   </div>
                   <Progress value={framework.contributionScore} className="h-2" />
@@ -82,7 +84,7 @@ export function ExpertFrameworksPanel({ detailed = false }: ExpertFrameworksPane
             {!detailed && (
               <div className="text-right">
                 <div className="text-2xl font-bold text-purple-400">{framework.contributionScore}%</div>
-                <div className="text-xs text-slate-400">Contribution</div>
+                <div className="text-xs text-slate-400">Impact Score</div>
               </div>
             )}
           </div>
@@ -91,9 +93,9 @@ export function ExpertFrameworksPanel({ detailed = false }: ExpertFrameworksPane
         {detailed && (
           <div className="mt-6 p-4 rounded-lg bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30">
             <div className="text-sm text-purple-100">
-              <strong>Expert Integration Impact:</strong> The combination of these expert frameworks provides 
-              the theoretical foundation for achieving 90%+ accuracy across all prediction engines. 
-              Each framework contributes specialized methodologies that enhance specific aspects of prediction accuracy.
+              <strong>Expert Framework Integration:</strong> These proven methodologies from industry leaders 
+              provide the theoretical foundation for our 90%+ accuracy predictions. Each framework contributes 
+              specialized knowledge that enhances specific aspects of business intelligence and decision-making.
             </div>
           </div>
         )}
