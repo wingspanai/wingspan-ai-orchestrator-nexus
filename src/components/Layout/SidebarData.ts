@@ -1,3 +1,4 @@
+
 import {
   BarChart3,
   Building2,
@@ -96,6 +97,15 @@ export const sidebarData = [
       { title: "Security Audit", path: "/security", icon: ShieldCheck },
       { title: "Legal & Compliance", path: "/legal", icon: Shield },
       { title: "Zero-Knowledge Compliance", path: "/legal/zero-knowledge", icon: Key },
+    ]
+  },
+  {
+    title: "System",
+    icon: Settings,
+    path: "/settings",
+    items: [
+      { title: "Settings", path: "/settings", icon: Settings },
+      { title: "Help & Support", path: "/help", icon: HelpCircle },
     ]
   }
 ];
