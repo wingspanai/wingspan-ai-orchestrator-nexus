@@ -1,9 +1,8 @@
-
 import { MainLayout } from "@/components/Layout/MainLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, TrendingUp, DollarSign, Target, Rocket, Building2 } from "lucide-react";
+import { ArrowRight, TrendingUp, DollarSign, Target, Rocket, Building2, FileText, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   Breadcrumb,
